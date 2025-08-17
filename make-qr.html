@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR 코드 생성</title>
+</head>
+<body>
+  <h1>QR 코드 생성</h1>
+  <p>아래 QR을 찍으면 <b>http://127.0.0.1:5500/locar.html</b>로 이동한다.</p>
+  <img id="qr" alt="QR 코드" />
+
+  <script>
+    const targetUrl = "http://127.0.0.1:5500/locar.html";
+    const qrApi = "https://api.qrserver.com/v1/create-qr-code/";
+    const params = new URLSearchParams({ data: targetUrl, size: "300x300", qzone: "2", ecc: "M" });
+    document.getElementById("qr").src = qrApi + "?" + params.toString();
+  </script>
+</body>
+</html>
